@@ -17,8 +17,15 @@ function ChipBox() {
   const selectedChipsRef = useRef([]);
   const displayUsersRef = useRef([]);
   // layoutRef.current = layoutState;
-
+  useEffect(() => {
+    console.log("mounted", displayUsers);
+    return () => {
+      console.log("unmounted");
+    };
+  });
   const showUsers = (users) => {
+    console.log("add user clicked");
+
     const userList = users.map((user) => (
       <User
         addUserFlag={true}
@@ -42,20 +49,6 @@ function ChipBox() {
     showUsers(newList);
   };
 
-  // const addIdToList = (id) => {
-  //   const user = users.filter((user) => user.id == id);
-  //   const item = (
-  //     <User
-  //       addUserFlag={true}
-  //       id={user.id}
-  //       key={user.id}
-  //       name={user.name}
-  //       addUser={addUserToChip}
-  //     />
-  //   );
-
-  //   console.log(item);
-  // };
   const removeFromList = () => {
     const newDisplayUsers = displayUsersRef.current.filter((user) => {
       if (selectedChipsRef.current.length == 0) return true;
@@ -72,13 +65,13 @@ function ChipBox() {
   const removeUserFromChip = (e) => {
     let removeduserID;
     const newchips = selectedChipsRef.current.filter((user) => {
-      if (user.props.id !== +e.target.id) return true;
+      if (user.props.id !== +e.currentTarget.id) return true;
       else {
         removeduserID = user.props.id;
         return false;
       }
     });
-    console.log(removeduserID, e);
+    console.log(removeduserID, e, e.currentTarget.id);
     selectedChipsRef.current = newchips;
     setSelectedChips(newchips);
     showUsers(users);

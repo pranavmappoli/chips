@@ -17,15 +17,8 @@ function ChipBox() {
   const selectedChipsRef = useRef([]);
   const displayUsersRef = useRef([]);
   // layoutRef.current = layoutState;
-  useEffect(() => {
-    console.log("mounted", displayUsers);
-    return () => {
-      console.log("unmounted");
-    };
-  });
-  const showUsers = (users) => {
-    console.log("add user clicked");
 
+  const showUsers = (users) => {
     const userList = users.map((user) => (
       <User
         addUserFlag={true}
@@ -71,7 +64,7 @@ function ChipBox() {
         return false;
       }
     });
-    console.log(removeduserID, e, e.currentTarget.id);
+    // console.log(removeduserID, e, e.currentTarget.id);
     selectedChipsRef.current = newchips;
     setSelectedChips(newchips);
     showUsers(users);

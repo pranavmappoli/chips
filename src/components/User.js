@@ -9,15 +9,15 @@ function User(props) {
       <div className="user-item" id={props.id}>
         <FaUserSecret />
         {props.name}
-        {props.close && <AiOutlineClose onClick={props.closebtn} />}
+        {props.close && <AiOutlineClose onClick={props.removeUser} />}
       </div>
     </li>
   );
 }
 User.defaultProps = {
   close: false,
-  closebtn: () => {
-    return;
+  removeUser: () => {
+    return null;
   },
 };
 

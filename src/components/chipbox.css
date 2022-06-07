@@ -1,11 +1,30 @@
 .chipBoxContainer {
   width: 80%;
 }
+.chipcontainer {
+  background-color: aliceblue;
+  display: grid;
+  place-items: center;
+  width: 80%;
+  box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
+  height: 50vh;
+}
 .chipbox {
   height: 3rem;
   padding: 0 1rem;
   display: block;
   width: 100%;
+  border: none;
+  background-color: rgb(22, 233, 233);
+}
+.chipbox::placeholder {
+  color: white;
+  font-size: large;
+  font-weight: 400;
+}
+.chipbox:focus {
+  border: none;
+  outline: none;
 }
 .chips {
   width: 100%;
@@ -15,4 +34,16 @@
   justify-content: stretch;
   gap: 1rem;
   box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
+  border-radius: 10px;
+  background-color: rgb(22, 233, 233);
+}
+.input-list {
+  position: relative;
+}
+.input-list ul {
+  width: 100%;
+  position: absolute;
+  left: -3.5rem;
+  top: 3.5rem;
+  display: block;
 }

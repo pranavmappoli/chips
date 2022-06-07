@@ -2,4 +2,12 @@
   display: grid;
   place-items: center;
   height: 100vh;
+  padding: 0;
+  margin: 0;
+}
+#root {
+  background-image: url("./images//cool-background.png");
+  background-size: cover;
+  background-repeat: repeat;
+  width: 100%;
 }

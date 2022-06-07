@@ -24,8 +24,11 @@ function ChipBox() {
     };
   });
   const showUsers = (users) => {
-    const userList = users.map((user, id) => (
+    console.log("add user clicked");
+
+    const userList = users.map((user) => (
       <User
+        addUserFlag={true}
         id={user.id}
         key={user.id}
         name={user.name}
@@ -46,6 +49,20 @@ function ChipBox() {
     showUsers(newList);
   };
 
+  // const addIdToList = (id) => {
+  //   const user = users.filter((user) => user.id == id);
+  //   const item = (
+  //     <User
+  //       addUserFlag={true}
+  //       id={user.id}
+  //       key={user.id}
+  //       name={user.name}
+  //       addUser={addUserToChip}
+  //     />
+  //   );
+
+  //   console.log(item);
+  // };
   const removeFromList = () => {
     const newDisplayUsers = displayUsersRef.current.filter((user) => {
       if (selectedChipsRef.current.length == 0) return true;
@@ -60,7 +77,18 @@ function ChipBox() {
   };
 
   const removeUserFromChip = (e) => {
-    console.log(e.target);
+    let removeduserID;
+    const newchips = selectedChipsRef.current.filter((user) => {
+      if (user.props.id !== +e.target.id) return true;
+      else {
+        removeduserID = user.props.id;
+        return false;
+      }
+    });
+    console.log(removeduserID, e);
+    selectedChipsRef.current = newchips;
+    setSelectedChips(newchips);
+    showUsers(users);
   };
   const addUserToChip = (e) => {
     const chipsSelected = users.filter((user) => user.id === +e.target.id);
@@ -78,23 +106,34 @@ function ChipBox() {
     setSelectedChips((prev) => [...prev, chipUser]);
     removeFromList();
   };
+
+  const cleanUsers = () => {
+    selectedChipsRef.current = [];
+    setDisplayusers([]);
+    setSelectedChips([]);
+    selectedChipsRef.current = [];
+    displayUsersRef.current = [];
+  };
   return (
     <>
-      <div className="chipBoxContainer">
-        <label htmlFor="chips-selected" className="chips">
-          {selectedChips}
-
-          <input
-            id="chips-selected"
-            list="usernames"
-            className="chipbox"
-            type="text"
-            placeholder="Enter name"
-            onClick={searchUsers}
-            onChange={searchUsers}
-          />
-        </label>
-        <ul>{displayUsers}</ul>
+      <div className="chipcontainer">
+        <div className="chipBoxContainer">
+          <label htmlFor="chips" className="chips">
+            {selectedChips}
+            <div className="input-list">
+              <input
+                id="chips-selected"
+                list="usernames"
+                className="chipbox"
+                type="text"
+                placeholder="Enter name"
+                onFocus={searchUsers}
+                onChange={searchUsers}
+              />
+              <ul>{displayUsers}</ul>
+            </div>
+          </label>
+        </div>
       </div>
     </>
   );

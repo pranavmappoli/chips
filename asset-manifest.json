@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/chips/static/css/main.d107000d.css",
-    "main.js": "/chips/static/js/main.4dd64170.js",
+    "main.js": "/chips/static/js/main.cbc41dce.js",
     "static/media/cool-background.png": "/chips/static/media/cool-background.f4787a433ce13c932cb4.png",
     "index.html": "/chips/index.html",
     "main.d107000d.css.map": "/chips/static/css/main.d107000d.css.map",
-    "main.4dd64170.js.map": "/chips/static/js/main.4dd64170.js.map"
+    "main.cbc41dce.js.map": "/chips/static/js/main.cbc41dce.js.map"
   },
   "entrypoints": [
     "static/css/main.d107000d.css",
-    "static/js/main.4dd64170.js"
+    "static/js/main.cbc41dce.js"
   ]
 }

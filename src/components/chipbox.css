@@ -1,0 +1,18 @@
+.chipBoxContainer {
+  width: 80%;
+}
+.chipbox {
+  height: 3rem;
+  padding: 0 1rem;
+  display: block;
+  width: 100%;
+}
+.chips {
+  width: 100%;
+  border: none;
+  padding: 10px;
+  display: flex;
+  justify-content: stretch;
+  gap: 1rem;
+  box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
+}
